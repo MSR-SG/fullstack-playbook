@@ -1,0 +1,91 @@
+FULLSTACK PLAYBOOK: REPO STRUCTURE
+==================================
+
+Here is a structure that works as a practice ground and as a quick reference.
+Think of it like a kitchen. The topic folders are your pantry, the cheatsheets
+are your recipe cards, and the projects are the meals where everything comes together.
+
+fullstack-playbook/
+├── README.md                  # Index: what is where, how to run things
+├── FileStructure.txt          # This file
+├── cheatsheets/               # Quick help, one file per topic
+│   ├── javascript.md
+│   ├── react.md
+│   ├── java.md
+│   ├── spring.md
+│   ├── python.md
+│   ├── aws.md
+│   └── git.md
+│
+├── javascript/
+│   ├── basics/
+│   ├── functions-closures/
+│   ├── async-promises/
+│   └── modules-es6plus/
+├── react/
+│   ├── components-props/
+│   ├── hooks/
+│   ├── context-api/
+│   ├── routing/
+│   ├── state-management/
+│   ├── testing/
+│   ├── login-app/             # Vite app
+│   ├── task-manager/          # Vite app
+│   └── foundation/
+│       └── foundation-app/    # Vite app
+├── java/                      # Each drill has its own pom.xml
+│   ├── oop/
+│   ├── collection/
+│   ├── stream/
+│   ├── lambda/                # Kept apart from stream/ to drill lambdas on their own
+│   ├── concurrency/
+│   └── junit/
+├── spring/                    # Each drill has its own pom.xml
+│   ├── core-di/
+│   ├── rest-controllers/
+│   ├── data-jpa/
+│   ├── security-jwt/
+│   └── testing/
+├── aws/
+│   ├── iam/
+│   ├── s3/
+│   ├── lambda/
+│   ├── ecs-ec2/
+│   ├── rds-dynamodb/
+│   └── infra-as-code/
+├── python/
+│   ├── basics/
+│   ├── data-structures/
+│   ├── functions-modules/
+│   ├── oop/
+│   ├── files-json/
+│   ├── api-fastapi/
+│   └── testing-pytest/
+│
+├── projects/                  # End-to-end apps that join the stack
+│   └── react-spring-app/
+│
+├── .github/workflows/         # CI: run tests on each push
+├── .vscode/settings.json      # Shared VS Code settings (Java reads the Maven build)
+├── .gitignore                 # node_modules, target/, .venv, .env, AWS keys
+├── package.json               # npm shortcut scripts for the React apps
+└── pom.xml                    # Maven parent for all Java and Spring drills
+
+Every exercise folder should hold three things. A short README.md with the problem,
+your notes, and the mistakes you made. A src/ folder with your code. A test/ folder
+that proves the code works.
+
+Two practical rules:
+
+- Keep a separate build system per language. Use npm for JavaScript and React, one package-lock.json per app.
+  Use one Maven or Gradle multi-module setup for Java and Spring.
+  Use a virtual environment (.venv) and pytest for Python. If you force them
+  into one build, you will waste time fixing tooling instead of practising.
+- Never commit AWS credentials. Put them in .env, list .env in .gitignore, and check
+  before every push.
+
+One weak spot to watch: topic folders often turn into a graveyard of small snippets
+you never open again. Your new job is full stack, so the real skill is joining the
+layers: React calling a Spring API, which reads from RDS and deploys to AWS. Put most
+of your effort into the projects/ folder, and use the topic folders only to drill the
+weak parts you find there.

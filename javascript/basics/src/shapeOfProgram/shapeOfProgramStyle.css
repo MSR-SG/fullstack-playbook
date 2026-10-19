@@ -1,0 +1,41 @@
+/*
+The structure is >> 
+
+selector {
+  property: value;
+}
+The selector says which elements to style.
+Between { } you list properties (what to change) and values (what to change them to).
+Each line ends with ;
+*/
+
+/* Whole page: centers everything on the screen */
+body {
+  margin: 0;                      /* remove the browser's default gap around the page */
+  min-height: 100vh;              /* at least as tall as the window (vh = viewport height) */
+  display: flex;                  /* turn on Flexbox, a layout system for arranging children */
+  flex-direction: column;         /* stack children top-to-bottom, not side-by-side */
+  justify-content: center;        /* center them vertically (along the column) */
+  align-items: center;            /* center them horizontally */
+  font-family: Arial, sans-serif; /* use Arial, or any plain font if Arial is missing */
+  background-color: #f4f6fb;      /* light grey-blue page background */
+  color: #333;                    /* dark grey text (short for #333333) */
+}
+
+/* The greeting (Good Morning / Afternoon / Evening) */
+/* # means "the element with this id", here id="title" */
+#title {
+  font-size: 2.5rem;              /* 2.5 x the normal text size (about 40px) */
+  margin: 0 0 10px;               /* space outside: top 0, sides 0, bottom 10px */
+  color: #2b4c7e;                 /* dark blue text */
+}
+
+/* The clock, the element with id="time" */
+#time {
+  font-size: 1.5rem;              /* 1.5 x the normal text size (about 24px) */
+  margin: 0;                      /* no space outside the box */
+  padding: 10px 20px;             /* space inside: 10px top/bottom, 20px left/right */
+  background-color: #ffffff;      /* white box */
+  border-radius: 8px;             /* rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* shadow: 0 right, 2px down, 6px blur, black at 10% */
+}

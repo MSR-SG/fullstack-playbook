@@ -1,0 +1,12 @@
+{
+  "name": "fullstack-playbook",
+  "private": true,
+  "description": "Shortcut scripts for the React apps. Each app keeps its own node_modules and package-lock.json.",
+  "scripts": {
+    "install:all": "npm install --prefix react/login-app && npm install --prefix react/task-manager && npm install --prefix react/foundation/foundation-app",
+    "dev:login": "npm run dev --prefix react/login-app",
+    "dev:tasks": "npm run dev --prefix react/task-manager",
+    "dev:foundation": "npm run dev --prefix react/foundation/foundation-app",
+    "lint:all": "npm run lint --prefix react/login-app && npm run lint --prefix react/task-manager && npm run lint --prefix react/foundation/foundation-app"
+  }
+}
