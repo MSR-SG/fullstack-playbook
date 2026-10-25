@@ -24,6 +24,7 @@ fullstack-playbook/
 │   └── modules-es6plus/
 ├── react/
 │   ├── components-props/
+│   │   └── about-me-app/      # Vite app
 │   ├── hooks/
 │   ├── context-api/
 │   ├── routing/
@@ -32,7 +33,7 @@ fullstack-playbook/
 │   ├── login-app/             # Vite app
 │   ├── task-manager/          # Vite app
 │   └── foundation/
-│       └── foundation-app/    # Vite app
+│       └── structure-of-react-app/  # Vite app
 ├── java/                      # Each drill has its own pom.xml
 │   ├── oop/
 │   ├── collection/

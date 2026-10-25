@@ -10,7 +10,7 @@ Each topic folder holds small drills, and the `projects/` folder joins the whole
 | `cheatsheets/` | Quick help, one file per topic: aws, git, java, javascript, python, react, spring |
 | `javascript/` | basics, functions-closures, async-promises, modules-es6plus |
 | `react/` | Drills: components-props, hooks, context-api, routing, state-management, testing |
-| `react/` (apps) | Vite apps: `login-app`, `task-manager`, `foundation/foundation-app` |
+| `react/` (apps) | Vite apps: `login-app`, `task-manager`, `foundation/structure-of-react-app`, `components-props/about-me-app` |
 | `java/` | oop, collection, stream, lambda, concurrency, junit |
 | `spring/` | core-di, rest-controllers, data-jpa, security-jwt, testing |
 | `python/` | basics, data-structures, functions-modules, oop, files-json, api-fastapi, testing-pytest |
@@ -30,7 +30,7 @@ The root `package.json` only holds shortcut scripts, so you can run any app from
 npm run install:all     # install every React app, run once
 npm run dev:login       # start login-app
 npm run dev:tasks       # start task-manager
-npm run dev:foundation  # start foundation-app
+npm run dev:foundation  # start structure-of-react-app
 npm run lint:all        # lint every app
 ```
 

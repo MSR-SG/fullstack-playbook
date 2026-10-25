@@ -101,21 +101,18 @@ Open your browser and go to <http://localhost:5173/>. You should see the default
 
 ## Foundation
 
-The folder holds two apps:
+The folder holds one app, [foundation/structure-of-react-app/](foundation/structure-of-react-app/): one small component per concept, all rendered on one page. The same concepts are put together into a real page in the [About Me app](#about-me-app) under [Components & Props](#components--props).
 
-- [foundation/foundation-app/](foundation/foundation-app/): one small component per concept, all rendered on one page.
-- [foundation/about-me-app/](foundation/about-me-app/): the same concepts put together into a small "About Me" page (see [About Me app](#about-me-app) below).
+### Structure of a React app
 
-### Foundation app
-
-**Location:** [foundation/foundation-app/](foundation/foundation-app/)
+**Location:** [foundation/structure-of-react-app/](foundation/structure-of-react-app/)
 
 **Stack:** React 19, Vite 8, ESLint (with `react-hooks` and `react-refresh` plugins)
 
 #### Running it
 
 ```bash
-cd foundation/foundation-app
+cd foundation/structure-of-react-app
 npm install
 npm run dev       # start the dev server with hot reload
 npm run build     # production build into dist/
@@ -136,9 +133,9 @@ index.html            <div id="root"> + loads /src/main.jsx
     └── CardWithChildrenAndProp  `children` plus an optional `title` prop
 ```
 
-[src/main.jsx](foundation/foundation-app/src/main.jsx) is the entry point. It calls `createRoot(document.getElementById("root")).render(...)` and wraps everything in `<StrictMode>`. In development, StrictMode runs extra checks and renders components twice to surface side-effect bugs. The components are rendered one after another and separated by `<br />`. Nothing is nested inside `App`, so each component can be studied on its own.
+[src/main.jsx](foundation/structure-of-react-app/src/main.jsx) is the entry point. It calls `createRoot(document.getElementById("root")).render(...)` and wraps everything in `<StrictMode>`. In development, StrictMode runs extra checks and renders components twice to surface side-effect bugs. The components are rendered one after another and separated by `<br />`. Nothing is nested inside `App`, so each component can be studied on its own.
 
-Styling is global in [src/index.css](foundation/foundation-app/src/index.css). It contains a CSS reset, the body font and colours, and a shared `.user-card` class, which is a white card with a rounded border, a shadow, and a flex column layout. All the card components use this class.
+Styling is global in [src/index.css](foundation/structure-of-react-app/src/index.css). It contains a CSS reset, the body font and colours, and a shared `.user-card` class, which is a white card with a rounded border, a shadow, and a flex column layout. All the card components use this class.
 
 #### The components
 
@@ -146,7 +143,7 @@ All components are **function components**. Each one is the default export of it
 
 ##### 1. `Welcome`: the simplest component
 
-[src/Welcome.jsx](foundation/foundation-app/src/Welcome.jsx)
+[src/Welcome.jsx](foundation/structure-of-react-app/src/Welcome.jsx)
 
 A function that returns JSX, with no props and no logic.
 
@@ -158,7 +155,7 @@ A function that returns JSX, with no props and no logic.
 
 ##### 2. `App`: JSX expressions and conditional rendering
 
-[src/App.jsx](foundation/foundation-app/src/App.jsx)
+[src/App.jsx](foundation/structure-of-react-app/src/App.jsx)
 
 Declares local constants (string, number, boolean) and embeds them in the markup with `{curly braces}`. It shows a line only when a flag is true:
 
@@ -172,7 +169,7 @@ Declares local constants (string, number, boolean) and embeds them in the markup
 
 ##### 3. `UserCardWithProps`: reading props from the `props` object
 
-[src/UserCardWithProps.jsx](foundation/foundation-app/src/UserCardWithProps.jsx)
+[src/UserCardWithProps.jsx](foundation/structure-of-react-app/src/UserCardWithProps.jsx)
 
 Receives one `props` argument and reads `props.name`, `props.email`, and `props.age`.
 
@@ -185,7 +182,7 @@ Receives one `props` argument and reads `props.name`, `props.email`, and `props.
 
 ##### 4. `UserCardDestructured`: the same card, destructured
 
-[src/UserCardDestructured.jsx](foundation/foundation-app/src/UserCardDestructured.jsx)
+[src/UserCardDestructured.jsx](foundation/structure-of-react-app/src/UserCardDestructured.jsx)
 
 The output is identical to `UserCardWithProps`, but the props are destructured in the parameter list:
 
@@ -197,7 +194,7 @@ function UserCardDestructured({ name, email, age }) { ... }
 
 ##### 5. `Profile`: props of every type
 
-[src/Profile.jsx](foundation/foundation-app/src/Profile.jsx)
+[src/Profile.jsx](foundation/structure-of-react-app/src/Profile.jsx)
 
 Takes one prop of each common type. Each type is used in a different way:
 
@@ -225,7 +222,7 @@ Takes one prop of each common type. Each type is used in a different way:
 
 ##### 6. `CardWithChildren`: the `children` prop
 
-[src/CardWithChildren.jsx](foundation/foundation-app/src/CardWithChildren.jsx)
+[src/CardWithChildren.jsx](foundation/structure-of-react-app/src/CardWithChildren.jsx)
 
 A wrapper that renders whatever is placed between its opening and closing tags:
 
@@ -244,7 +241,7 @@ function CardWithChildren({ children }) {
 
 ##### 7. `CardWithChildrenAndProp`: `children` plus regular props
 
-[src/CardWithChildrenAndProp.jsx](foundation/foundation-app/src/CardWithChildrenAndProp.jsx)
+[src/CardWithChildrenAndProp.jsx](foundation/structure-of-react-app/src/CardWithChildrenAndProp.jsx)
 
 The same wrapper with an optional `title` prop, rendered as a heading only when it is passed:
 
@@ -264,9 +261,15 @@ The same wrapper with an optional `title` prop, rendered as a heading only when 
 - The `.app` class in `index.css` is defined but not used. Wrapping the components in `<div className="app">` in `main.jsx` would centre the page and add padding.
 - `Profile` assumes `address` and `hobbies` are always passed. If either is missing it will crash. A default such as `hobbies = []` would make it safer.
 
+---
+
+## Components & Props
+
+The folder holds one app, [components-props/about-me-app/](components-props/about-me-app/): the foundation concepts (props, destructuring, `children`) composed into a small "About Me" page.
+
 ### About Me app
 
-**Location:** [foundation/about-me-app/](foundation/about-me-app/)
+**Location:** [components-props/about-me-app/](components-props/about-me-app/)
 
 **Stack:** React 19, Vite 8, ESLint (with `react-hooks` and `react-refresh` plugins)
 
@@ -275,7 +278,7 @@ A single "About Me" page built from small components. Each one gets its data thr
 #### Running it
 
 ```bash
-cd foundation/about-me-app
+cd components-props/about-me-app
 npm install
 npm run dev
 ```
@@ -292,24 +295,23 @@ src/main.jsx               renders <App /> inside <StrictMode>
         └── ContactCard    email / github / linkedin props → links inside <Card>
 ```
 
-All components are in [src/components/](foundation/about-me-app/src/components/):
+All components are in [src/components/](components-props/about-me-app/src/components/):
 
 | Component | Props | What it shows |
 | --- | --- | --- |
-| [Header](foundation/about-me-app/src/components/Header.jsx) | `name`, `title` | Page heading in a `<header>` |
-| [Card](foundation/about-me-app/src/components/Card.jsx) | `title`, `children` | Reusable frame: a heading plus whatever is nested inside |
-| [Bio](foundation/about-me-app/src/components/Bio.jsx) | `children` | The bio text inside a `Card` |
-| [SkillsList](foundation/about-me-app/src/components/SkillsList.jsx) | `skills` (array) | Comma-separated skills inside a `Card` |
-| [ContactCard](foundation/about-me-app/src/components/ContactCard.jsx) | `email`, `github`, `linkedin` | `mailto:` link and external links (`target="_blank"` with `rel="noopener noreferrer"`) inside a `Card` |
+| [Header](components-props/about-me-app/src/components/Header.jsx) | `name`, `title` | Page heading in a `<header>` |
+| [Card](components-props/about-me-app/src/components/Card.jsx) | `title`, `children` | Reusable frame: a heading plus whatever is nested inside |
+| [Bio](components-props/about-me-app/src/components/Bio.jsx) | `children` | The bio text inside a `Card` |
+| [SkillsList](components-props/about-me-app/src/components/SkillsList.jsx) | `skills` (array) | Comma-separated skills inside a `Card` |
+| [ContactCard](components-props/about-me-app/src/components/ContactCard.jsx) | `email`, `github`, `linkedin` | `mailto:` link and external links (`target="_blank"` with `rel="noopener noreferrer"`) inside a `Card` |
 
-**Concepts:** `App` is the only component that owns data. Everything below it is presentational. `Card` is a generic wrapper that the three content components reuse, which is the `children` pattern from the foundation app applied to a real page.
+**Concepts:** `App` is the only component that owns data. Everything below it is presentational. `Card` is a generic wrapper that the three content components reuse, which is the `children` pattern from the [structure-of-react-app](#structure-of-a-react-app) applied to a real page.
 
 #### Design notes and possible clean-ups
 
-- The `.app`, `.card`, `.card-title` and `.card-content` classes are used in the JSX but not defined in [src/index.css](foundation/about-me-app/src/index.css), so the cards have no styling yet. `index.css` also has an unused `.counter` rule left over from the Vite template.
+- The `.app`, `.card`, `.card-title` and `.card-content` classes are used in the JSX but not defined in [src/index.css](components-props/about-me-app/src/index.css), so the cards have no styling yet. `index.css` also has an unused `.counter` rule left over from the Vite template.
 - `App.css` is not imported anywhere.
 - `ContactCard` still has placeholder email, GitHub and LinkedIn values.
-- The app `README.md` is still the default Vite template text.
 
 ---
 
