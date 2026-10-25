@@ -2,6 +2,7 @@ import { useState } from "react";
 import { mockCustomers, generateCustomerId } from "./mockData";
 import CustomerCard from "./components/CustomerCard";
 import SearchBar from "./components/SearchBar";
+import CustomerDetail from "./components/CustomerDetail";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       c.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       c.email.toLowerCase().includes(searchTerm.toLowerCase()),
   );
+  const [selectedCustomer, setSelectedCustomer] = useState(null);
 
   // Change methods.
   const handleChange = (e) => {
@@ -40,6 +42,9 @@ function App() {
 
   const handleDeleteCustomer = (customerId) => {
     setCustomers(customers.filter((c) => c.id !== customerId));
+    if (selectedCustomer?.id === customerId) {
+      setSelectedCustomer(null);
+    }
   };
 
   return (
@@ -93,19 +98,36 @@ function App() {
         </button>
       </form>
 
-      <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
+      <div className="crm-layout">
+        <div className="customer-panel">
+          <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
 
-      <div className="customer-list">
-        <h2>Customers ({filteredCustomers.length})</h2>
-        <div className="customers">
-          {filteredCustomers.map((customer) => (
-            <CustomerCard
-              key={customer.id}
-              customer={customer}
-              onDelete={handleDeleteCustomer}
-            />
-          ))}
+          <div className="customer-list">
+            <h2>Customers ({filteredCustomers.length})</h2>
+
+            {filteredCustomers.length === 0 ? (
+              <p className="empty-state">
+                {searchTerm
+                  ? "No customers match your search."
+                  : "No customers yet. Add one above!"}
+              </p>
+            ) : (
+              <div className="customers">
+                {filteredCustomers.map((customer) => (
+                  <CustomerCard
+                    key={customer.id}
+                    customer={customer}
+                    onDelete={handleDeleteCustomer}
+                    onSelect={setSelectedCustomer}
+                    isSelected={selectedCustomer?.id === customer.id}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
+
+        <CustomerDetail customer={selectedCustomer} />
       </div>
     </div>
   );

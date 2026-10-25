@@ -94,9 +94,10 @@
   font-size: var(--text-sm);
   color: var(--text-body);
   cursor: pointer;
-  transition: background var(--duration-fast) var(--ease-standard),
-              border-color var(--duration-fast) var(--ease-standard),
-              color var(--duration-fast) var(--ease-standard);
+  transition:
+    background var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
 }
 
 .tag-toggle-active {
@@ -104,4 +105,15 @@
   border-color: var(--primary-500);
   color: var(--primary-700);
   font-weight: var(--weight-medium);
+}
+
+.crm-layout {
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+}
+
+.customer-panel {
+  flex: 1;
+  min-width: 0;
 }
