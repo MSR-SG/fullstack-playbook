@@ -8,7 +8,7 @@
 
 .login-card {
   width: min(100%, 360px);
-  background: white;
+  background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: var(--shadow);
@@ -38,6 +38,8 @@
   border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 16px;
+  background: var(--bg);
+  color: var(--text-h);
 }
 
 .login-form input:focus {
@@ -68,11 +70,11 @@
 }
 
 .status.success {
-  color: #15803d;
+  color: var(--success);
 }
 
 .status.error {
-  color: #b91c1c;
+  color: var(--danger);
 }
 
 .logout-button {
